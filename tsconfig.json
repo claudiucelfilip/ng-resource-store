@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-resource-store": [
+        "dist/ng-resource-store"
+      ],
+      "ng-resource-store/*": [
+        "dist/ng-resource-store/*"
+      ]
+    }
   }
 }
