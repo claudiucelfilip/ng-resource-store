@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgResourceStoreModule } from 'ng-resource-store';
 import { AppComponent } from './app.component';
-import { TestDirective } from './test.directive';
+
 import { IResourceOptions } from 'resource-store';
-import { TestComponent } from './test/test.component';
+
 
 const resOptions: IResourceOptions = {
   initialState: {
@@ -18,8 +18,6 @@ const resOptions: IResourceOptions = {
 @NgModule({
   declarations: [
     AppComponent,
-    TestDirective,
-    TestComponent
   ],
   imports: [
     BrowserModule,

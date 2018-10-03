@@ -1,4 +1,6 @@
 {
+  "name": "NgResourceStore",
+  "version": "0.1.1",
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/ng-resource-store",
   "deleteDestPath": false,
@@ -6,6 +8,6 @@
     "entryFile": "src/public_api.ts"
   },
   "dependencies": {
-    "resource-store": "git@github.com:claudiucelfilip/resource-store.git"
+    "resource-store": "git+https://github.com/claudiucelfilip/resource-store.git"
   }
 }

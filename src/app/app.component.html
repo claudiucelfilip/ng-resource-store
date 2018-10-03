@@ -25,12 +25,8 @@
          href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
-<app-test *rsResource="let resource, let key=key, let columns=columns, let tracks=tracks from 'res-1'"
-          [resource]="resource"
-          [columns]="columns"
-          [key]="key"
-          [tracks]="tracks">
-</app-test>
-<div *rsResource="let key=key from 'res-1'">
+
+<div *rsResource="let key=key, let tracks=tracks from 'res-1'">
   <button (click)="key.next('new-key')">alter!</button>
+  {{tracks.value | json}}
 </div>
