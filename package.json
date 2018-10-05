@@ -29,6 +29,7 @@
     "resource-store": "git+https://github.com/claudiucelfilip/resource-store.git"
   },
   "devDependencies": {
+    "resource-store": "git+https://github.com/claudiucelfilip/resource-store.git",
     "@angular-devkit/build-angular": "~0.7.0",
     "@angular-devkit/build-ng-packagr": "~0.7.0",
     "@angular/cli": "~6.1.5",
