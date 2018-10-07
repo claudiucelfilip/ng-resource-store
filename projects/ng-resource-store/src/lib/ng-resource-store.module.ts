@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { NgResourceStoreDirective } from './ng-resource-store.directive';
-import { IResourceOptions, ResourceStore } from 'resource-store';
-import * as SoreProps from 'resource-store';
+import { ResourceStore } from '@claudiucelfilip/resource-store';
+
 
 @NgModule({
   declarations: [NgResourceStoreDirective],
   exports: [NgResourceStoreDirective]
 })
 export class NgResourceStoreModule {
-  static forStore(options) {
-    let store = new ResourceStore(options);
+  static forStores(stores) {
+    let rootStore = new ResourceStore();
+    stores.forEach(store => rootStore.add(store));
+
     return {
       ngModule: NgResourceStoreModule,
       providers: [
         { 
           provide: ResourceStore,
-          useFactory: () => store
+          useFactory: () => rootStore
         }
       ]
     }

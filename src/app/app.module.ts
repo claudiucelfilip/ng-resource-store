@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgResourceStoreModule } from 'ng-resource-store';
+import { NgResourceStoreModule } from '@claudiucelfilip/ng-resource-store';
 import { AppComponent } from './app.component';
-
-import { IResourceOptions } from 'resource-store';
+import { BehaviorSubject } from 'rxjs';
+import { IResourceOptions, Resource } from '@claudiucelfilip/resource-store';
+import { DataResource } from './utils';
 
 
 const resOptions: IResourceOptions = {
-  initialState: {
+  initialState: new DataResource({
     key: 'tracks-columns',
     tracks: [1, 2, 3],
     columns: ['one', 'two', 'three']
-  }
+  })
 };
-
 
 @NgModule({
   declarations: [
@@ -21,10 +21,10 @@ const resOptions: IResourceOptions = {
   ],
   imports: [
     BrowserModule,
-    NgResourceStoreModule.forStore({
-      'res-1': resOptions,
-      'res-2': resOptions
-    })
+    NgResourceStoreModule.forStores([
+      new Resource<DataResource>('res-1', resOptions),
+      new Resource<DataResource>('res-2', resOptions)
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataResource } from './utils';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-resource-store-app';
+  DataResource = DataResource;
 }

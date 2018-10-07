@@ -1,13 +1,32 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { NgResourceStoreModule } from '@claudiucelfilip/ng-resource-store';
+import { IResourceOptions, Resource } from '@claudiucelfilip/resource-store';
+import { DataResource } from './utils';
+
+const resOptions: IResourceOptions = {
+  initialState: new DataResource({
+    key: 'tracks-columns',
+    tracks: [1, 2, 3],
+    columns: ['one', 'two', 'three']
+  })
+};
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      imports: [
+        NgResourceStoreModule.forStores([
+          new Resource<DataResource>('res-1', resOptions),
+          new Resource<DataResource>('res-2', resOptions)
+        ])
+      ]
     }).compileComponents();
   }));
+  
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
