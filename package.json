@@ -10,8 +10,7 @@
     "e2e": "ng e2e",
     "build:lib": "ng build --prod ng-resource-store",
     "package": "npm run build:lib && npm run npm_pack",
-    "npm_pack": "cd dist/ng-resource-store && npm pack",
-    "postinstall": "npm run build:lib"
+    "npm_pack": "cd dist/ng-resource-store && npm pack"
   },
   "private": true,
   "dependencies": {
@@ -25,15 +24,11 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
-    "resource-store": "git+https://github.com/claudiucelfilip/resource-store.git",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },
-  "peerDependencies": {
-    "resource-store": "git+https://github.com/claudiucelfilip/resource-store.git"
-  },
   "devDependencies": {
-    "resource-store": "git+https://github.com/claudiucelfilip/resource-store.git",
+    "@claudiucelfilip/resource-store": "^0.5.0",
     "@angular-devkit/build-angular": "~0.7.0",
     "@angular-devkit/build-ng-packagr": "~0.7.0",
     "@angular/cli": "~6.1.5",

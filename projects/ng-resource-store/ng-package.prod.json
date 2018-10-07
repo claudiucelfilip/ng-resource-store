@@ -7,6 +7,5 @@
     "entryFile": "src/public_api.ts"
   },
   "dependencies": {
-    "resource-store": "git+https://github.com/claudiucelfilip/resource-store.git"
   }
 }

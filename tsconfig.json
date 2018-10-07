@@ -18,10 +18,10 @@
       "dom"
     ],
     "paths": {
-      "ng-resource-store": [
+      "@claudiucelfilip/ng-resource-store": [
         "dist/ng-resource-store"
       ],
-      "ng-resource-store/*": [
+      "@claudiucelfilip/ng-resource-store/*": [
         "dist/ng-resource-store/*"
       ]
     }
