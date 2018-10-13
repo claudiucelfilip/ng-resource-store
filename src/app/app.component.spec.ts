@@ -19,10 +19,10 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
-        NgResourceStoreModule.forStores([
-          new Resource<DataResource>('res-1', resOptions),
-          new Resource<DataResource>('res-2', resOptions)
-        ])
+        NgResourceStoreModule.forStores({
+          'res-1': resOptions,
+          'res-2': resOptions
+        })
       ]
     }).compileComponents();
   }));
