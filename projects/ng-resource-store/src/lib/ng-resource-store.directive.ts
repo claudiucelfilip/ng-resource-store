@@ -25,13 +25,7 @@ export class NgResourceStoreDirective {
     let resource: ResourceContext = this.store.get(keyOrResource);
     const proxy = new Proxy(resource, {
       get: (target, name: string) => {
-        // if (target[name] !== undefined) {
-        //   if (typeof target[name] === 'function') {
-        //     return target[name].bind(target);
-        //   }
-        //   return target[name];
-        // }
-        if (typeof name === 'string' && /\$$/.test(name) === false) {
+        if (typeof name === 'string' && name !== '$implicit' && /\$$/.test(name) === false) {
           name += '$';
         }
         return target[name];
