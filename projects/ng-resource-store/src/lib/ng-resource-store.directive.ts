@@ -23,7 +23,22 @@ export class NgResourceStoreDirective {
   @Input()
   set rsResourceFrom (keyOrResource: string | Resource<any>) {
     let resource: ResourceContext = this.store.get(keyOrResource);
-    this.context = resource;
+    const proxy = new Proxy(resource, {
+      get: (target, name: string) => {
+        // if (target[name] !== undefined) {
+        //   if (typeof target[name] === 'function') {
+        //     return target[name].bind(target);
+        //   }
+        //   return target[name];
+        // }
+        if (typeof name === 'string' && /\$$/.test(name) === false) {
+          name += '$';
+        }
+        return target[name];
+      }
+    })
+
+    this.context = proxy;
     this.context.$implicit = resource;
   }
 

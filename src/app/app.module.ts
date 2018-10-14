@@ -19,7 +19,8 @@ const resOptions: INgResourceOptions = {
   initialState: new DataResource({
     key: 'tracks-columns',
     tracks: [1, 2, 3],
-    columns: ['one', 'two', 'three']
+    columns: ['one', 'two', 'three'],
+    value: 'conflicting value'
   })
 };
 

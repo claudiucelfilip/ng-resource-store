@@ -26,7 +26,8 @@
   </li>
 </ul>
 
-<div *rsResource="let key=key, let tracks=tracks from 'res-1'">
+<div *rsResource="let key=key, let tracks=tracks, let value=value from 'res-1'">
   <button (click)="key.next('new-key')">alter!</button>
   {{tracks.value | json}}
+  {{value | async}}
 </div>

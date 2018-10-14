@@ -11,7 +11,8 @@
     "build:lib": "ng build --prod ng-resource-store",
     "package": "npm run build:lib && npm run npm_pack",
     "npm_pack": "cd dist/ng-resource-store && npm pack",
-    "publish:lib": "cd dist/ng-resource-store && npm publish"
+    "publish:lib": "cd dist/ng-resource-store && npm publish",
+    "test:lib": "ng test --project=ng-resource-store"
   },
   "private": true,
   "dependencies": {
@@ -29,7 +30,7 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@claudiucelfilip/resource-store": "^0.6.2",
+    "@claudiucelfilip/resource-store": "^0.7.0",
     "@angular-devkit/build-angular": "~0.7.0",
     "@angular-devkit/build-ng-packagr": "~0.7.0",
     "@angular/cli": "~6.1.5",
