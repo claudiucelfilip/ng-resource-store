@@ -1,12 +1,12 @@
 {
   "name": "@claudiucelfilip/ng-resource-store",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "scripts": {
     "test": "ng test"
   },
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "@claudiucelfilip/resource-store": "^0.7.0"
+    "@claudiucelfilip/resource-store": "^0.8.0"
   }
 }

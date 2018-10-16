@@ -8,12 +8,12 @@ export interface IResourceConnectorConstructor {
 }
 
 export interface INgResourceOptions extends IResourceOptions {
-  connectorFactory?: IResourceConnectorFactory
+  connectorFactory?: IResourceConnectorFactory;
 }
 
 export interface IResourceConnectorFactory {
-  useClass: IResourceConnectorConstructor,
-  providers: any
+  useClass: IResourceConnectorConstructor;
+  providers: any;
 }
 
 @NgModule({
@@ -23,7 +23,7 @@ export interface IResourceConnectorFactory {
 })
 export class NgResourceStoreModule {
   static forStores (stores: { [key: string]: INgResourceOptions }) {
-    let rootStore = new ResourceStore();
+    const rootStore = new ResourceStore();
 
     Object.keys(stores).forEach(key => {
       const store = stores[key];
@@ -52,6 +52,6 @@ export class NgResourceStoreModule {
           useFactory: () => rootStore
         }
       ]
-    }
+    };
   }
 }

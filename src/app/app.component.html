@@ -25,9 +25,25 @@
          href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
-
-<div *rsResource="let key=key, let tracks=tracks, let value=value from 'res-1'">
-  <button (click)="key.next('new-key')">alter!</button>
+<div *rsResource="let res1 from 'res1'">
+  <!-- <button (click)="key.next('new-key')">alter!</button>
   {{tracks.value | json}}
-  {{value | async}}
+  {{value | async}} -->
+  <logger [target]="res1.value"></logger>
+
+<!--
+  {{store['res-1'].value | json}}
+  {{store['res-2'].value | json}} -->
+</div>
+
+<div *rsResource="let res1=res1, let res2=res2, let res3=resStore3 from {res1: 'res1', res2: 'res-2', resStore3: resStore3}">
+  <!-- <button (click)="key.next('new-key')">alter!</button>
+  {{tracks.value | json}}
+  {{value | async}} -->
+  <logger [target]="res1.value"></logger>
+  <logger [target]="res2.value"></logger>
+  <logger [target]="res3.value"></logger>
+<!--
+  {{store['res-1'].value | json}}
+  {{store['res-2'].value | json}} -->
 </div>

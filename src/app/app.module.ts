@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { DataResource } from './utils';
 import { MusicSearchConnector } from './music-search.connector';
 import { HttpClient, HttpClientModule, HttpHandler, HttpXhrBackend } from '@angular/common/http';
+import { LoggerComponent } from './logger.component';
 
 const resOptions: INgResourceOptions = {
   connectorFactory: {
@@ -24,16 +25,26 @@ const resOptions: INgResourceOptions = {
   })
 };
 
+const resOptions2 = {...resOptions, ...{
+  initialState: new DataResource({
+    key: 'tracks-columns-2',
+    tracks: [3, 4, 5],
+    columns: ['three', 'four', 'five'],
+    value: 'conflicting value 2'
+  })
+}};
+
 @NgModule({
   declarations: [
     AppComponent,
+    LoggerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgResourceStoreModule.forStores({
-      'res-1': resOptions,
-      'res-2': resOptions
+      'res1': resOptions,
+      'res-2': resOptions2
     })
   ],
   providers: [],
