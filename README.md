@@ -1,6 +1,6 @@
-# Ng-Resource-store
+# ng-resource-store
 
-Provides a way to integrate resource-store withing your Angular project via a service or directive.
+Provides a way to integrate [resource-store](https://github.com/claudiucelfilip/resource-store) within your Angular project via a service or directive.
 
 
 ## Installation
