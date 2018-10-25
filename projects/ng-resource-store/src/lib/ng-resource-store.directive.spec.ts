@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { NgResourceStoreDirective } from './ng-resource-store.directive';
 
-import { ResourceStore, IResourceOptions, Resource, symbol } from '@claudiucelfilip/resource-store';
+import { ResourceStore, IResourceOptions, symbol, IResource } from '@claudiucelfilip/resource-store';
 import { DataResource } from '../utils';
 import { Component, Input, Directive, ViewChild, Output } from '@angular/core';
 import { By } from '@angular/platform-browser';
@@ -21,6 +21,11 @@ const initialState = {
 const resOptions: IResourceOptions = {
   initialState
 };
+
+const resourceStore = new ResourceStore();
+resourceStore.create('res-1', resOptions);
+resourceStore.create('res-2', resOptions);
+
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -50,8 +55,8 @@ class TestComponent {
   @Input() tracks;
   @Input() columns;
   @Input() resource;
-  resourceStore1 = new Resource('res-1', resOptions);
-  resourceStore2 = new Resource('res-2', resOptions);
+  resourceStore1: IResource;
+  resourceStore2: IResource;
 
   @ViewChild('output1') output1Ref;
   @ViewChild('output2') output2Ref;
@@ -63,8 +68,8 @@ class TestComponent {
   @ViewChild('output8') output8Ref;
 
   constructor(store: ResourceStore) {
-    store.add(this.resourceStore1);
-    store.add(this.resourceStore2);
+    this.resourceStore1 = store.get('res-1');
+    this.resourceStore2 = store.get('res-2');
   }
 }
 
@@ -89,7 +94,7 @@ describe('Ng Resource Store', () => {
       providers: [
         {
           provide: ResourceStore,
-          useFactory: () => new ResourceStore()
+          useValue: resourceStore
         }
       ]
     })

@@ -1,18 +1,9 @@
-import { Resource, ResourceSubject } from '@claudiucelfilip/resource-store';
-
-export interface IDataResource extends Resource<any> {
-  key: ResourceSubject<string>;
-  id: ResourceSubject<string>;
-  tracks: ResourceSubject<number[]>;
-  columns: ResourceSubject<string[]>;
-};
-
-
+import { IResource } from '@claudiucelfilip/resource-store';
 export class DataResource {
-  key: ResourceSubject<string>;
-  id: ResourceSubject<string>;
-  tracks: ResourceSubject<number[]>;
-  columns: ResourceSubject<string[]>;
+  key: any;
+  id: IResource;
+  tracks: IResource;
+  columns: IResource;
 
   constructor(options) {
     Object.assign(this, options);

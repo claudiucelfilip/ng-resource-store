@@ -1,9 +1,9 @@
 import { Directive, TemplateRef, OnInit, Input, ViewContainerRef } from '@angular/core';
-import { ResourceStore, Resource, symbol } from '@claudiucelfilip/resource-store';
+import { ResourceStore, IResource } from '@claudiucelfilip/resource-store';
 import { BehaviorSubject } from 'rxjs';
 
 
-export interface ResourceContext extends Resource<any> {
+export interface ResourceContext extends IResource {
   $implicit?: any;
 }
 export interface ResourcesContext extends Map<string, ResourceContext> {
@@ -49,8 +49,8 @@ export class NgResourceStoreDirective implements OnInit {
     return str.replace(/-(.|$)/g, item => (item[1] && item[1].toUpperCase()) || '');
   }
   @Input()
-  set rsResourceFrom (keyOrResource: string | Resource<any> | any) {
-    if (typeof keyOrResource === 'object' && !(keyOrResource instanceof Resource)) {
+  set rsResourceFrom (keyOrResource: string | IResource | any) {
+    if (typeof keyOrResource === 'object' && keyOrResource.constructor.name !== 'bound Resource') {
       const resources = new Map();
 
       Object.keys(keyOrResource).forEach(key => {

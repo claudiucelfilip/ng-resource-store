@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NgResourceStoreModule } from '@claudiucelfilip/ng-resource-store';
-import { IResourceOptions, Resource } from '@claudiucelfilip/resource-store';
+import { IResourceOptions } from '@claudiucelfilip/resource-store';
 import { DataResource } from './utils';
 
 const resOptions: IResourceOptions = {

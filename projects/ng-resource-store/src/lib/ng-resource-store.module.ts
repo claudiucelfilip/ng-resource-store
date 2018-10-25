@@ -1,6 +1,6 @@
 import { NgModule, Injector } from '@angular/core';
 import { NgResourceStoreDirective } from './ng-resource-store.directive';
-import { ResourceStore, Resource, IResourceOptions, IResourceConnector } from '@claudiucelfilip/resource-store';
+import { ResourceStore, IResourceOptions, IResourceConnector } from '@claudiucelfilip/resource-store';
 import { HttpClientModule } from '@angular/common/http';
 
 export interface IResourceConnectorConstructor {
@@ -41,7 +41,7 @@ export class NgResourceStoreModule {
         connector
       });
 
-      rootStore.add(new Resource<any>(key, options));
+      rootStore.create(key, options);
     });
 
     return {
