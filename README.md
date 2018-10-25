@@ -60,7 +60,7 @@ import { ResourceStore } from '@claudiucelfilip/resource-store';
     </div>
 
     <!-- acces multiple resources -->
-    <div *rsResource="let resourceOne=res1, let resourceTwo=res2 from {res1: 'res-1', res2: scopeRes2}">
+    <div *rsResource="let resourceOne=res1, let resourceTwo=res2, let allResources from {res1: 'res-1', res2: scopeRes2}">
       <h1>{{resourceOne.title.value}}</h2>
       <h2>{{resourceTwo.obj1.obj2.label | async}}</h2>
     </div>
@@ -68,7 +68,7 @@ import { ResourceStore } from '@claudiucelfilip/resource-store';
 })
 export class AppComponent{
   scopeRes2;
-  constructor(private resourceStore: ResourceStore) {
+  constructor(resourceStore: ResourceStore) {
     this.scopeRes2 = resourceStore.get('res-2');
   }
 }
